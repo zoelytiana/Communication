@@ -1,0 +1,24 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Site de communication</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des demandes </h1>
+
+            <h2>{{emp.id}} Nom : {{emp.name}} du Service : {{emp.service}}</h2>
+
+        <table>
+            <tr><th>Numéro demande</th><th>Type demande</th><th>Numéro employé</th><th>Date et heure</th><th>Service</th>{% if emp.service == 'RH' %}<th>Fiche</th>{% endif %}</tr>
+            {% for Message in Messages %}
+            <tr><td><a href="{{Message.id}}">{{Message.id}}</a></td><td>{{Message.typeDemande}}</td><td>{{Message.employe}}</td><td>{{Message.dateReceiver}}</td><td>{{Message.sendBy}}</td>{% if emp.service == 'RH' %} <td>{{Message.file}}</td>{% endif %}</tr>
+            {% endfor %}
+        </table>
+        <div><a href="/messages/add">Envoyer un message</a></div>
+    </div>
+</body>
+</html>

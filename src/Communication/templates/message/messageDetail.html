@@ -1,0 +1,26 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Communication</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+</head>
+<body>
+    <div class="container">
+        <h1>Détail du message  </h1>
+        <h2>{{valeur.typeDemande}}</h2>
+        <p>Référence Ordinateur :  {{ valeur.ordinateur }}</p>
+        <p>Référence Droit :   {{ valeur.acces }}</p>
+        <p>Référence Téléphone :   {{ valeur.telephone }}</p>
+        <p>Description :   {{ valeur.description }}</p>
+        <p>Employé :   {{ valeur.employe }}</p>
+        <p>Envoyer par :   {{ valeur.sendBy }}</p>
+        <p>Destinataire :   {{ valeur.receiver }}</p>
+        <p>Date : {{valeur.dateReceiver}}</p>
+        <p>Validation : {{valeur.valid}}</p>
+        <p>Fichier : {{valeur.file}}</p>
+        <div class="flex"><button onclick="" >Valider la proposition </button><button onclick="">Réfuser la proposition </button></div>
+    </div>
+</body>
+</html>
