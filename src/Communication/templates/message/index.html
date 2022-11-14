@@ -8,17 +8,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Liste des demandes </h1>
+        <h1>TABLEAU DE BORD </h1>
 
-            <h2>{{emp.id}} Nom : {{emp.name}} du Service : {{emp.service}}</h2>
+            <h2>{{emp.firstName}} {{emp.name}} <p>Service : {{emp.service}}</p></h2>
+            
 
         <table>
-            <tr><th>Numéro demande</th><th>Type demande</th><th>Numéro employé</th><th>Date et heure</th><th>Service</th>{% if emp.service == 'RH' %}<th>Fiche</th>{% endif %}</tr>
+            <tr><th>Numéro demande</th><th>Type demande</th><th>Employé</th><th>Date et heure de réception</th><th>Auteur (Service)</th>{% if emp.service == 'RH' %}<th>Fiche</th>{% endif %}</tr>
             {% for Message in Messages %}
-            <tr><td><a href="{{Message.id}}">{{Message.id}}</a></td><td>{{Message.typeDemande}}</td><td>{{Message.employe}}</td><td>{{Message.dateReceiver}}</td><td>{{Message.sendBy}}</td>{% if emp.service == 'RH' %} <td>{{Message.file}}</td>{% endif %}</tr>
+            <tr><td><a href="{{Message.id}}">{{Message.id}}</a></td><td>{{Message.typeDemande}}</td><td>{{Message.employe}}</td><td>{{ Message.dateReceiver|date:"d/m/Y" }} à {{ Message.dateReceiver|date:"h:m" }}</td><td>{{Message.sendBy}}</td>{% if emp.service == 'RH' %} <td>{{Message.file}}</td>{% endif %}</tr>
             {% endfor %}
         </table>
-        <div><a href="/messages/add">Envoyer un message</a></div>
+        <div><a href="/messages/add">Envoyer une demande</a></div>
     </div>
 </body>
 </html>

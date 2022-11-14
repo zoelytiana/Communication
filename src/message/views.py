@@ -73,6 +73,7 @@ def saveRequest(request):
         else:
             refPhone = ""
 
+        sendBy = "RH"
         if not error:
             newMessage = Message(typeDemande = typeDemande,  ordinateur = refOrdi,   telephone = refPhone,  acces = refAcces,  description = description, employe = employee, sendBy = sendBy, receiver = receiver)
             newMessage.save()
